@@ -2,7 +2,7 @@ import React from 'react'
 
 function DoctorsPage() {
   return (
-    <div>DoctorsPage</div>
+    <div className='p-5'>DoctorsPage</div>
   )
 }
 
