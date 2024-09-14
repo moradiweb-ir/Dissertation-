@@ -51,7 +51,7 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
     {
       name: "Staff / Users",
       icon: <List size={iconSize} />,
-      path: "/admin/staff",
+      path: "/admin/users",
     },
   ];
 

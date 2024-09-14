@@ -1,4 +1,3 @@
-import { IUser } from "@/interfaces";
 import { getUserDataFromMongoDB } from "@/server-actions/users";
 import { Alert, Button, message } from "antd";
 import Link from "next/link";
@@ -6,19 +5,20 @@ import React, { useEffect } from "react";
 import { Menu } from "lucide-react";
 import Spinner from "@/components/spinner";
 import MenuItems from "./menu-items";
+import { IUsersStore, usersGlobalStore } from "@/store/users-store";
 
 function PrivateLayout({ children }: { children: React.ReactNode }) {
-  const [userData, setUserData] = React.useState<IUser | null>(null);
   const [error, setError] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [showMenuItems, setShowMenuItems] = React.useState<boolean>(false);
-
+  const { setCurrentUserData, currentUserData }: IUsersStore =
+    usersGlobalStore() as any;
   const getUserData = async () => {
     try {
       setLoading(true);
       const response: any = await getUserDataFromMongoDB();
       if (response.success) {
-        setUserData(response.data);
+        setCurrentUserData(response.data);
         if (!response.data.isApproved) {
           setError(
             "Your account is not approved yet. Please contact the admin."
@@ -55,7 +55,9 @@ function PrivateLayout({ children }: { children: React.ReactNode }) {
           SHEY-HOSPITAL
         </Link>
         <div className="flex gap-5 items-center">
-          <span className="text-white text-sm uppercase">{userData?.name}</span>
+          <span className="text-white text-sm uppercase">
+            {currentUserData?.name}
+          </span>
           <Button ghost size="small" onClick={() => setShowMenuItems(true)}>
             <Menu size={16} className="text-white" />
           </Button>
@@ -69,9 +71,11 @@ function PrivateLayout({ children }: { children: React.ReactNode }) {
         <div className="p-5">{children}</div>
       )}
 
-
       {showMenuItems && (
-        <MenuItems showMenuItems={showMenuItems} setShowMenuItems={setShowMenuItems} />
+        <MenuItems
+          showMenuItems={showMenuItems}
+          setShowMenuItems={setShowMenuItems}
+        />
       )}
     </div>
   );
