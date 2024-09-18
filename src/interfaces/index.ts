@@ -1,5 +1,5 @@
 export interface IUser {
-  _id : string;
+  _id: string;
   name: string;
   email: string;
   clerkUserId: string;
@@ -23,4 +23,14 @@ export interface IDoctor {
   profilePicture: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export interface IPatient {
+  _id: string;
+  name: string;
+  email: string;
+  phone: string;
+  age: number;
+  gender: string;
+  problem?: string;
 }

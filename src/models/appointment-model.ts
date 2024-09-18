@@ -33,6 +33,10 @@ const appointmentSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    paymentId : {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
