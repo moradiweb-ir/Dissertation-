@@ -2,8 +2,10 @@ import PageTitle from "@/components/page-title";
 import { IUser } from "@/interfaces";
 import { getAllUsers } from "@/server-actions/users";
 import { Alert } from "antd";
-import React from "react";
+import React, { Suspense } from "react";
 import UsersTable from "./_components/users-table";
+import Spinner from "@/components/spinner";
+import SpinnerForServerComponents from "@/components/spinner-for-server-components";
 
 async function UsersPage() {
   const { success, data } = await getAllUsers();
@@ -21,10 +23,19 @@ async function UsersPage() {
   return (
     <div className="p-5">
       <PageTitle title="Users" />
-
       <UsersTable users={users} />
     </div>
   );
 }
 
-export default UsersPage;
+export default function Page() {
+  return (
+    <Suspense
+      fallback={
+        <SpinnerForServerComponents />
+      }
+    >
+      <UsersPage />
+    </Suspense>
+  );
+}

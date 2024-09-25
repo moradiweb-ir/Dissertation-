@@ -1,8 +1,9 @@
 import PageTitle from "@/components/page-title";
 import { getAllPatients } from "@/server-actions/patients";
 import { Alert } from "antd";
-import React from "react";
+import React, { Suspense } from "react";
 import PatientsTable from "./_components/patients-table";
+import SpinnerForServerComponents from "@/components/spinner-for-server-components";
 
 async function PatientsList() {
   const { success, data } = await getAllPatients();
@@ -20,4 +21,10 @@ async function PatientsList() {
   );
 }
 
-export default PatientsList;
+export default function Page() {
+  return (
+    <Suspense fallback={<SpinnerForServerComponents />}>
+      <PatientsList />;
+    </Suspense>
+  );
+}
