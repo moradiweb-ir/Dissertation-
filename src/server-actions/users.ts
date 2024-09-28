@@ -61,9 +61,23 @@ export const getUserDataFromMongoDB = async () => {
   }
 };
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (searchParams: {
+  name: string;
+  email: string;
+  isApproved: boolean;
+}) => {
   try {
-    const users = await UserModel.find().sort({ createdAt: -1 });
+    let filtersToApply: any = {};
+    if (searchParams.name) {
+      filtersToApply.name = { $regex: searchParams.name, $options: "i" };
+    }
+    if (searchParams.email) {
+      filtersToApply.email = { $regex: searchParams.email, $options: "i" };
+    }
+    if (searchParams.isApproved) {
+      filtersToApply.isApproved = searchParams.isApproved;
+    }
+    const users = await UserModel.find(filtersToApply).sort({ createdAt: -1 });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(users)),

@@ -6,9 +6,10 @@ import { Button, Input, message } from "antd";
 import React, { useEffect, useRef } from "react";
 import AppointmentReceipt from "./_components/appointment-receipt";
 import { useReactToPrint } from "react-to-print";
+import { useSearchParams } from "next/navigation";
 
 function AppointmentConfirmation() {
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = useSearchParams();
 
   const [appointmentId, setAppointmentId] = React.useState(
     searchParams.get("id") || ""
@@ -42,7 +43,7 @@ function AppointmentConfirmation() {
     if (appointmentId) {
       getData();
     }
-  }, []);
+  }, [searchParams]);
 
   return (
     <div className="p-5 flex flex-col items-center gap-7">

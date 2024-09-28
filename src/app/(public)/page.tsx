@@ -28,6 +28,10 @@ function Homepage() {
             <Link href="/book-appointment">Book an Appointment</Link>
           </Button>
         </div>
+
+        <Button type="primary">
+            <Link href="/appointment-confirmation?id=66ebeb80f0ae336234e315e7">Test</Link>
+          </Button>
       </div>
       <div className="flex justify-center">
         <img src="./logo.jpg" className="h-[500px]" />

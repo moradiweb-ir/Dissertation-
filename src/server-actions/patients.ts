@@ -2,9 +2,27 @@
 
 import PatientModel from "@/models/patient-model";
 
-export const getAllPatients = async () => {
+export const getAllPatients = async (searchParams: {
+  name: string;
+  phone: string;
+  gender: string;
+}) => {
   try {
-    const patients = await PatientModel.find().sort({ createdAt: -1 });
+    let filtersToApply: any = {};
+    if (searchParams.name) {
+      filtersToApply.name = { $regex: searchParams.name, $options: "i" };
+    }
+
+    if (searchParams.phone) {
+      filtersToApply.phone = { $regex: searchParams.phone, $options: "i" };
+    }
+
+    if (searchParams.gender) {
+      filtersToApply.gender = searchParams.gender;
+    }
+    const patients = await PatientModel.find(filtersToApply).sort({
+      createdAt: -1,
+    });
     return {
       success: true,
       data: JSON.parse(JSON.stringify(patients)),
@@ -16,4 +34,3 @@ export const getAllPatients = async () => {
     };
   }
 };
-

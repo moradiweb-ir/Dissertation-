@@ -117,9 +117,35 @@ export const getAppointmentById = async (id: string) => {
   }
 };
 
-export const getAllAppointments = async () => {
+export const getAllAppointments = async (searchParams: {
+  date: string;
+  patientName: string;
+  doctorName: string;
+}) => {
   try {
-    const appointments = await AppointmentModel.find()
+    const { date, patientName='', doctorName='' } = searchParams;
+    let mainFilters: any = {};
+    if (date) {
+      mainFilters.date = date;
+    }
+
+    const [doctorIds, patientIds] = await Promise.all([
+      DoctorModel.find({
+        name: { $regex: doctorName, $options: "i" },
+      }).distinct("_id"),
+      PatientModel.find({
+        name: { $regex: patientName, $options: "i" },
+      }).distinct("_id"),
+    ]);
+
+    if (doctorIds.length) {
+      mainFilters.doctor = { $in: doctorIds };
+    }
+
+    if (patientIds.length) {
+      mainFilters.patient = { $in: patientIds };
+    }
+    const appointments = await AppointmentModel.find(mainFilters)
       .populate("doctor")
       .populate("patient")
       .sort({ createdAt: -1 });
