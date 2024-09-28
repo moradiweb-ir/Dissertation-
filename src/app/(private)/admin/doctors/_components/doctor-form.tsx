@@ -85,6 +85,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="name"
           label="Name"
           rules={[{ required: true, message: "Please input the name!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input />
         </Form.Item>
@@ -93,6 +94,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="email"
           label="Email"
           rules={[{ required: true, message: "Please input the email!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input />
         </Form.Item>
@@ -101,6 +103,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="phone"
           label="Phone"
           rules={[{ required: true, message: "Please input the phone!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input type="number" />
         </Form.Item>
@@ -111,6 +114,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           rules={[
             { required: true, message: "Please input the specialization!" },
           ]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={specializations} mode="multiple" />
         </Form.Item>
@@ -119,6 +123,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="workDays"
           label="Work Days"
           rules={[{ required: true, message: "Please input the work days!" }]}
+           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workDays} mode="multiple" />
         </Form.Item>
@@ -127,6 +132,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="startTime"
           label="Start Time"
           rules={[{ required: true, message: "Please input the start time!" }]}
+           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workHours} />
         </Form.Item>
@@ -135,6 +141,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="endTime"
           label="End Time"
           rules={[{ required: true, message: "Please input the end time!" }]}
+           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workHours} />
         </Form.Item>
@@ -143,6 +150,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
           name="fee"
           label="Fee"
           rules={[{ required: true, message: "Please input the fee!" }]}
+           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input type="number" />
         </Form.Item>

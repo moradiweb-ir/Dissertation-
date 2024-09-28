@@ -7,6 +7,7 @@ import { Eye, X } from "lucide-react";
 import React from "react";
 import ViewAppointmentModal from "./view-appointment-modal";
 import CancelAppointmentModal from "./cancel-appointment-model";
+import dayjs from "dayjs";
 
 interface AppointmentsTableProps {
   appointments: IAppointment[];
@@ -63,32 +64,40 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
     {
       title: "Action",
       dataIndex: "action",
-      render: (text: string, record: IAppointment) => (
-        <div className="flex gap-5">
-          <Button
-            icon={<Eye size={12} />}
-            size="small"
-            onClick={() => {
-              setSelectedAppointment(record);
-              setShowViewAppointmentModal(true);
-            }}
-          >
-            View
-          </Button>
-          {record.status === "approved" && (
+      render: (text: string, record: IAppointment) => {
+        let showCancelBtn = false;
+        const isCancelled = record.status === "cancelled";
+        const isPast = dayjs(
+          `${record.date} ${record.time}`,
+          "YYYY-MM-DD HH:mm A"
+        ).isBefore(dayjs());
+        return (
+          <div className="flex gap-5">
             <Button
-              icon={<X size={12} />}
+              icon={<Eye size={12} />}
               size="small"
               onClick={() => {
                 setSelectedAppointment(record);
-                setShowCancelAppointmentModal(true);
+                setShowViewAppointmentModal(true);
               }}
             >
-              Cancel
+              View
             </Button>
-          )}
-        </div>
-      ),
+            {!isPast && !isCancelled && (
+              <Button
+                icon={<X size={12} />}
+                size="small"
+                onClick={() => {
+                  setSelectedAppointment(record);
+                  setShowCancelAppointmentModal(true);
+                }}
+              >
+                Cancel
+              </Button>
+            )}
+          </div>
+        );
+      },
     },
   ];
 

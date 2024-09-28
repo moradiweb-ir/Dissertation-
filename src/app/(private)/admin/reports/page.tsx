@@ -25,8 +25,6 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
       <Alert message="Failed to fetch reports data" type="error" showIcon />
     );
   }
-
-  console.log(data);
   return (
     <div className="p-5 flex flex-col gap-5">
       <PageTitle title="Reports" />
@@ -37,19 +35,19 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
         <DashboardCard
           title="Total appointments"
           value={data?.appointmentsCount || 0}
-          description={`Total appointments from ${searchParams.fromDate} to ${searchParams.toDate}`}
+          description={`Total appointments count in selected date range`}
         />
 
         <DashboardCard
           title="Fee collected"
           value={`$${data?.feeCollected || 0}`}
-          description={`Total fee collected from ${searchParams.fromDate} to ${searchParams.toDate}`}
+          description={`Total consultation fee collected in selected date range`}
         />
       </div>
 
       <div>
         <h1 className="text-sm font-bold">
-          Total appointments by day from {searchParams.fromDate} to{" "}
+          Appointments data in selected date range
           {searchParams.toDate}
         </h1>
 

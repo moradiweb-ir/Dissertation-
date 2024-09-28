@@ -18,7 +18,7 @@ function AvailableDoctors({
         Available doctors for the given date and time
       </h1>
 
-      <div className="grid grid-cols-4 gap-5 mt-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
         {doctorsList.map((doctor) => (
           <div
             className={`p-3 border cursor-pointer flex gap-5 rounded items-center ${

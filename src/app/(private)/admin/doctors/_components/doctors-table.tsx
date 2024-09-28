@@ -43,7 +43,7 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
       key: "phone",
     },
     {
-      title: "Speciality",
+      title: "Specializations",
       dataIndex: "specializations",
       key: "specilizations",
       render: (specializations: string[]) => specializations.join(" , "),

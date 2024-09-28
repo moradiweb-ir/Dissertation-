@@ -116,7 +116,7 @@ function BookAppoinmentPage() {
       <PageTitle title="Book Appointment" />
 
       <Form layout="vertical" className="mt-5">
-        <div className="grid grid-cols-4 gap-5 items-end">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-end">
           <Form.Item label="Date">
             <Input
               type="date"

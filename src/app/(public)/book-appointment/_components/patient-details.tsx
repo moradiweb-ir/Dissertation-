@@ -18,8 +18,11 @@ function PatientDetails({
       </h1>
 
       <Form layout="vertical">
-        <div className="grid grid-cols-4 gap-5 mt-5">
-          <Form.Item label="Name">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
+          <Form.Item
+            label="Name"
+            className="col-span-4 md:col-span-2 lg:col-span-1"
+          >
             <Input
               value={patientDetails.name}
               onChange={(e) =>
@@ -28,7 +31,7 @@ function PatientDetails({
             />
           </Form.Item>
 
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-5 col-span-4 md:col-span-2 lg:col-span-1 ">
             <Form.Item label="Age">
               <Input
                 type="number"
@@ -39,7 +42,10 @@ function PatientDetails({
               />
             </Form.Item>
 
-            <Form.Item label="Gender">
+            <Form.Item
+              label="Gender"
+              className="col-span-2 md:col-span-1 lg:col-span-1"
+            >
               <Select
                 value={patientDetails.gender}
                 onChange={(value) =>
@@ -63,7 +69,10 @@ function PatientDetails({
             </Form.Item>
           </div>
 
-          <Form.Item label="Email">
+          <Form.Item
+            label="Email"
+            className="col-span-4 md:col-span-2 lg:col-span-1"
+          >
             <Input
               value={patientDetails.email}
               onChange={(e) =>
@@ -72,7 +81,10 @@ function PatientDetails({
             />
           </Form.Item>
 
-          <Form.Item label="Phone">
+          <Form.Item
+            label="Phone"
+            className="col-span-4 md:col-span-2 lg:col-span-1"
+          >
             <Input
               value={patientDetails.phone}
               onChange={(e) =>
@@ -86,7 +98,10 @@ function PatientDetails({
               <Input.TextArea
                 value={patientDetails.problem}
                 onChange={(e) =>
-                  setPatientDetails({ ...patientDetails, problem: e.target.value })
+                  setPatientDetails({
+                    ...patientDetails,
+                    problem: e.target.value,
+                  })
                 }
               />
             </Form.Item>
