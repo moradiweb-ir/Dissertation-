@@ -30,7 +30,7 @@ async function UsersPage({ searchParams }: UsersPageProps) {
 
   return (
     <div className="p-5 flex flex-col gap-5">
-      <PageTitle title="Users" />
+      <PageTitle title="کاربران" />
       <FilterUsers />
       <UsersTable users={users} />
     </div>

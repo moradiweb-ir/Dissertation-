@@ -22,8 +22,8 @@ async function PatientsList({ searchParams }: PatientsListProps) {
 
   const patients = data;
   return (
-    <div className="p-5 flex flex-col gap-5">
-      <PageTitle title="Patients" />
+    <div className="p-5 flex flex-col gap-5 text-end">
+      <PageTitle title="بیماران" />
 
       <FilterPatients />
 

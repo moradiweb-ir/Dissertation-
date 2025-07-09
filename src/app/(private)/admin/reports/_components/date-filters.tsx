@@ -18,10 +18,10 @@ function DateFiltersForReports() {
   };
 
   return (
-    <div className="flex gap-5 items-end">
-      <div className="flex flex-col">
+    <div className="flex gap-5 items-end flex-row-reverse ">
+      <div className="flex flex-col text-end">
         <label className="text-sm" htmlFor="From Date">
-          From date
+          از تاریخ
         </label>
         <Input
           type="date"
@@ -30,9 +30,9 @@ function DateFiltersForReports() {
         />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col text-end ">
         <label className="text-sm" htmlFor="To Date">
-          To date
+          تا تاریخ
         </label>
         <Input
           type="date"
@@ -42,7 +42,7 @@ function DateFiltersForReports() {
       </div>
 
       <Button type="primary" onClick={getDataHandler}>
-        Get Data
+        پیدا کردن
       </Button>
     </div>
   );

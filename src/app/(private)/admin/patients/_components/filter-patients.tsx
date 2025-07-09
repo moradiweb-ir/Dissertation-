@@ -4,9 +4,9 @@ import React from "react";
 import { useRouter } from "next/navigation";
 
 const genders = [
-  { label: "Male", value: "male" },
-  { label: "Female", value: "female" },
-  { label: "Other", value: "other" },
+  { label: "مرد", value: "مرد" },
+  { label: "زن", value: "زن" },
+  { label: "بیشتر", value: "بیشتر" },
 ];
 
 function FilterPatients() {
@@ -28,23 +28,29 @@ function FilterPatients() {
 
   return (
     <div className="grid lg:grid-cols-4 gap-5 items-end">
-      <div className="flex flex-col">
+      <div className="flex justify-end gap-5">
+        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
+        <Button type="primary" onClick={onFilter}>
+          اعمال فیلتر
+        </Button>
+      </div>
+      <div className="flex flex-col text-end">
         <label htmlFor="Search" className="text-sm">
-          Name
+          نام
         </label>
         <Input value={name} onChange={(e) => setName(e.target.value)} />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col  text-end">
         <label htmlFor="phone" className="text-sm">
-          Phone
+          تلفن
         </label>
         <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col  text-end">
         <label htmlFor="gender" className="text-sm">
-          Gender
+          جنسیت
         </label>
         <Select
           options={genders}
@@ -52,13 +58,6 @@ function FilterPatients() {
           onChange={(value) => setGender(value)}
           className="w-full"
         />
-      </div>
-
-      <div className="flex justify-end gap-5">
-        <Button onClick={onClearFilters}>Clear Filters</Button>
-        <Button type="primary" onClick={onFilter}>
-          Apply Filters
-        </Button>
       </div>
     </div>
   );

@@ -29,10 +29,10 @@ async function DoctorsPage({ searchParams }: DoctorsPageProps) {
   return (
     <div className="p-5 flex flex-col gap-5">
       <div className="flex justify-between items-center">
-        <PageTitle title="Doctors" />
         <Button type="primary">
-          <Link href="/admin/doctors/new">Add Doctor</Link>
+          <Link href="/admin/doctors/new">اضافه کردن دکتر</Link>
         </Button>
+        <PageTitle title="پزشکان" />
       </div>
 
       <FilterDoctors />

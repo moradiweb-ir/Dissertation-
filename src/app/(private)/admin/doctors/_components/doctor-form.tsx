@@ -77,7 +77,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
     <div className="mt-5">
       <Form
         layout="vertical"
-        className="grid grid-cols-4 gap-5"
+        className="grid grid-cols-4 gap-5 "
         onFinish={onSubmit}
         initialValues={initialValues}
       >

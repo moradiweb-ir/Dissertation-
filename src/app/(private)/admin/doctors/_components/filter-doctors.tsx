@@ -23,17 +23,23 @@ function FilterDoctors() {
   };
 
   return (
-    <div className="grid lg:grid-cols-4 gap-5 items-end">
-      <div className="flex flex-col">
-        <label htmlFor="Search" className="text-sm">
-          Search
+    <div className="grid lg:grid-cols-4 gap-5 items-end  text-end">
+      <div className="flex justify-end gap-5 ">
+        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
+        <Button type="primary" onClick={onFilter}>
+          اعمال فیلتر
+        </Button>
+      </div>
+      <div className="flex flex-col  text-end">
+        <label htmlFor="Search" className="text-sm ">
+          جستجو
         </label>
         <Input value={search} onChange={(e) => setSearch(e.target.value)} />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col text-end">
         <label htmlFor="Speciality" className="text-sm">
-          Speciality
+          تخصص
         </label>
         <Select
           options={specializations}
@@ -42,18 +48,11 @@ function FilterDoctors() {
         />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col text-end">
         <label htmlFor="Phone" className="text-sm">
-          Phone
+          شماره تلفن
         </label>
         <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
-      </div>
-
-      <div className="flex justify-end gap-5">
-        <Button onClick={onClearFilters}>Clear Filters</Button>
-        <Button type="primary" onClick={onFilter}>
-          Apply Filters
-        </Button>
       </div>
     </div>
   );

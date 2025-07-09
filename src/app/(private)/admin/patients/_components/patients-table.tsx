@@ -17,32 +17,7 @@ function PatientsTable({ patients }: PatientsTableProps) {
   );
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
-    },
-    {
-      title: "Gender",
-      dataIndex: "gender",
-      key: "gender",
-    },
-    {
-      title: "Age",
-      dataIndex: "age",
-      key: "age",
-    },
-    {
-      title: "Actions",
+      title: "رزرو",
       dataIndex: "actions",
       key: "actions",
       render: (text: any, record: any) => (
@@ -66,6 +41,31 @@ function PatientsTable({ patients }: PatientsTableProps) {
           </Button>
         </div>
       ),
+    },
+    {
+      title: "سن",
+      dataIndex: "age",
+      key: "age",
+    },
+    {
+      title: "جنسیت",
+      dataIndex: "gender",
+      key: "gender",
+    },
+    {
+      title: "تلفن",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "نام ",
+      dataIndex: "name",
+      key: "name",
     },
   ];
   return (

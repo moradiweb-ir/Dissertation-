@@ -37,39 +37,39 @@ function PatientAppointmentModal({
 
   const columns = [
     {
-      title: "Doctor Name",
-      dataIndex: "doctor",
-      render: (doctor: IDoctor) => doctor.name,
+      title: "رزرو شده",
+      dataIndex: "createdAt",
+      render: (createdAt: string) => getDateTimeFormat(createdAt),
     },
     {
-      title: "Specialist",
-      dataIndex: "specialist",
-      render: (specialist: string) => specialist.toUpperCase(),
+      title: "آیدی بیمار",
+      dataIndex: "paymentId",
     },
     {
-      title: "Date & Time",
+      title: "وضعیت",
+      dataIndex: "status",
+      render: (status: string) => status.toUpperCase(),
+    },
+    {
+      title: "هزینه",
+      dataIndex: "fee",
+      render: (fee: number) => `$${fee}`,
+    },
+    {
+      title: "تاربخ و زمان",
       dataIndex: "date",
       render: (date: string, row: IAppointment) =>
         getDateTimeFormat(`${date} ${row.time}`),
     },
     {
-      title: "Fee",
-      dataIndex: "fee",
-      render: (fee: number) => `$${fee}`,
+      title: "نخصص",
+      dataIndex: "specialist",
+      render: (specialist: string) => specialist.toUpperCase(),
     },
     {
-      title: "Status",
-      dataIndex: "status",
-      render: (status: string) => status.toUpperCase(),
-    },
-    {
-      title: "Payment ID",
-      dataIndex: "paymentId",
-    },
-    {
-      title: "Booked On",
-      dataIndex: "createdAt",
-      render: (createdAt: string) => getDateTimeFormat(createdAt),
+      title: "نام دکتر ",
+      dataIndex: "doctor",
+      render: (doctor: IDoctor) => doctor.name,
     },
   ];
 

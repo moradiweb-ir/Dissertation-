@@ -28,39 +28,7 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "Phone",
-      dataIndex: "phone",
-      key: "phone",
-    },
-    {
-      title: "Specializations",
-      dataIndex: "specializations",
-      key: "specilizations",
-      render: (specializations: string[]) => specializations.join(" , "),
-    },
-    {
-      title: "Fee",
-      dataIndex: "fee",
-      key: "fee",
-    },
-    {
-      title: "Added On",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (date: string) => getDateTimeFormat(date),
-    },
-    {
-      title: "Actions",
+      title: "اقدامات",
       dataIndex: "actions",
       key: "actions",
       render: (_: any, row: IDoctor) => (
@@ -76,6 +44,38 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
           </Button>
         </div>
       ),
+    },
+    {
+      title: "اضافه شد",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      render: (date: string) => getDateTimeFormat(date),
+    },
+    {
+      title: "هزینه",
+      dataIndex: "fee",
+      key: "fee",
+    },
+    {
+      title: "نخصص ها",
+      dataIndex: "specializations",
+      key: "specilizations",
+      render: (specializations: string[]) => specializations.join(" , "),
+    },
+    {
+      title: "تلفن",
+      dataIndex: "phone",
+      key: "phone",
+    },
+    {
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "نام",
+      dataIndex: "name",
+      key: "name",
     },
   ];
   return (

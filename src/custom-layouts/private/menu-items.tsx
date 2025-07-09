@@ -24,32 +24,32 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
   const { signOut } = useAuth();
   const menuItems = [
     {
-      name: "Dashboard",
+      name: "داشبورد",
       icon: <LayoutDashboard size={iconSize} />,
       path: "/admin/dashboard",
     },
     {
-      name: "Doctors",
+      name: "پزشکان",
       icon: <GraduationCap size={iconSize} />,
       path: "/admin/doctors",
     },
     {
-      name: "Appointments",
+      name: "رزروها",
       icon: <CalendarClock size={iconSize} />,
       path: "/admin/appointments",
     },
     {
-      name: "Patients",
+      name: "بیماران",
       icon: <Contact size={iconSize} />,
       path: "/admin/patients",
     },
     {
-      name: "Reports",
+      name: "گزارش ها",
       icon: <Banknote size={iconSize} />,
       path: "/admin/reports",
     },
     {
-      name: "Staff / Users",
+      name: "کارکنان / کاربران",
       icon: <List size={iconSize} />,
       path: "/admin/users",
     },
@@ -57,7 +57,6 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
 
   const handleSignOut = async () => {
     try {
-      await signOut();
       message.success("Signed out successfully");
     } catch (error: any) {
       message.error(error.message);

@@ -18,37 +18,37 @@ async function DashboardPage() {
   }
 
   return (
-    <div className="p-5 flex flex-col gap-5">
-      <PageTitle title="Dashboard" />
+    <div className="p-5 flex flex-col gap-5 text-end">
+      <PageTitle title="داشبورد" />
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-2">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-2 text-center">
         <DashboardCard
-          title="Today's Appointments"
+          title="رزروهای امروز"
           value={data?.todayAppointmentsCount || 0}
-          description="Total appointments booked today"
+          description="کل وقت‌های رزرو شده امروز"
         />
 
         <DashboardCard
-          title="All Appointments"
+          title="همه رزروها"
           value={data?.allAppointmentsCount || 0}
-          description="Total appointments booked till now"
+          description="کل وقت‌های رزرو شده تا این لحظه"
         />
 
         <DashboardCard
-          title="All Doctors"
+          title="دکترها"
           value={data?.allDoctorsCount || 0}
-          description="Total doctors registered in the system"
+          description="کل پزشکان ثبت شده در سامانه"
         />
 
         <DashboardCard
-          title="All Patients"
+          title="بیماران"
           value={data?.allPatientsCount || 0}
-          description="Total patients registered till now"
+          description="کل بیماران ثبت شده تا این لحظه"
         />
       </div>
 
       <div className="mt-7">
-        <h1 className="text-sm font-bold">Today's Appointments</h1>
+        <h1 className="text-xl font-bold">قرارهای ملاقات امروز</h1>
         <AppointmentsTable appointments={data?.todayAppointmentsData} />
       </div>
     </div>

@@ -24,8 +24,8 @@ async function AppointmentsListPage({
   }
   const appointments = data;
   return (
-    <div className="p-5 flex flex-col gap-5">
-      <PageTitle title="Appointments" />
+    <div className="p-5 flex flex-col gap-5 text-end">
+      <PageTitle title="رزرو ها" />
       <FilterAppointments />
       <AppointmentsTable appointments={appointments} />
     </div>

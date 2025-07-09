@@ -23,33 +23,26 @@ function FilterUsers() {
   };
 
   return (
-    <div className="grid lg:grid-cols-4 gap-5 items-end">
-      <div className="flex flex-col">
-        <label htmlFor="Search" className="text-sm">
-          Name
-        </label>
-        <Input value={name} onChange={(e) => setName(e.target.value)} />
-      </div>
-
-      <div className="flex flex-col">
-        <label htmlFor="phone" className="text-sm">
-          Email
-        </label>
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+    <div className="grid lg:grid-cols-4 gap-5 items-end text-end">
+      <div className="flex justify-end gap-5">
+        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
+        <Button type="primary" onClick={onFilter}>
+          اعمال فیلتر
+        </Button>
       </div>
 
       <div className="flex flex-col">
         <label htmlFor="gender" className="text-sm">
-          Is Approved ?
+          مورد تایید است؟
         </label>
         <Select
           options={[
             {
-              label: "Yes",
+              label: "بله",
               value: true,
             },
             {
-              label: "No",
+              label: "خیر",
               value: false,
             },
           ]}
@@ -58,12 +51,17 @@ function FilterUsers() {
           className="w-full"
         />
       </div>
-
-      <div className="flex justify-end gap-5">
-        <Button onClick={onClearFilters}>Clear Filters</Button>
-        <Button type="primary" onClick={onFilter}>
-          Apply Filters
-        </Button>
+      <div className="flex flex-col">
+        <label htmlFor="phone" className="text-sm">
+          ایمیل
+        </label>
+        <Input value={email} onChange={(e) => setEmail(e.target.value)} />
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="Search" className="text-sm">
+          نام
+        </label>
+        <Input value={name} onChange={(e) => setName(e.target.value)} />
       </div>
     </div>
   );

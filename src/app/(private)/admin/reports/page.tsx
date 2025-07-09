@@ -26,28 +26,28 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
     );
   }
   return (
-    <div className="p-5 flex flex-col gap-5">
-      <PageTitle title="Reports" />
+    <div className="p-5 flex flex-col gap-5 text-center">
+      <PageTitle title="گزارشات" />
 
       <DateFiltersForReports />
 
-      <div className="grid lg:grid-cols-3 gap-4">
+      <div className="flex lg:flex-cols-3 gap-4 justify-end text-center ">
         <DashboardCard
-          title="Total appointments"
+          title="مجموع قرار ملاقات ها"
           value={data?.appointmentsCount || 0}
-          description={`Total appointments count in selected date range`}
+          description={`تعداد کل قرار ملاقات‌ها در محدوده تاریخ انتخاب شده`}
         />
 
         <DashboardCard
-          title="Fee collected"
-          value={`$${data?.feeCollected || 0}`}
-          description={`Total consultation fee collected in selected date range`}
+          title="هزینه جمع آوری شده"
+          value={`${data?.feeCollected || 0}`}
+          description={`کل هزینه مشاوره جمع‌آوری‌شده در محدوده تاریخ انتخاب ‌شده`}
         />
       </div>
 
       <div>
-        <h1 className="text-sm font-bold">
-          Appointments data in selected date range
+        <h1 className="text-sm font-bold text-end">
+          داده‌های قرار ملاقات در محدوده تاریخ انتخاب شده
           {searchParams.toDate}
         </h1>
 

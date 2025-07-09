@@ -22,48 +22,8 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
     React.useState<IAppointment | null>(null);
   const columns = [
     {
-      title: "Patient Name",
-      dataIndex: "patient",
-      render: (patient: IPatient) => patient.name,
-    },
-    {
-      title: "Doctor Name",
-      dataIndex: "doctor",
-      render: (doctor: IDoctor) => doctor.name,
-    },
-    {
-      title: "Specialist",
-      dataIndex: "specialist",
-      render: (specialist: string) => specialist.toUpperCase(),
-    },
-    {
-      title: "Date & Time",
-      dataIndex: "date",
-      render: (date: string, row: IAppointment) =>
-        getDateTimeFormat(`${date} ${row.time}`),
-    },
-    {
-      title: "Fee",
-      dataIndex: "fee",
-      render: (fee: number) => `$${fee}`,
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      render: (status: string) => status.toUpperCase(),
-    },
-    {
-      title: "Payment ID",
-      dataIndex: "paymentId",
-    },
-    {
-      title: "Booked On",
-      dataIndex: "createdAt",
-      render: (createdAt: string) => getDateTimeFormat(createdAt),
-    },
-    {
-      title: "Action",
-      dataIndex: "action",
+      title: "اقدام",
+      dataIndex: "اقدام",
       render: (text: string, record: IAppointment) => {
         let showCancelBtn = false;
         const isCancelled = record.status === "cancelled";
@@ -92,12 +52,52 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
                   setShowCancelAppointmentModal(true);
                 }}
               >
-                Cancel
+                انصراف
               </Button>
             )}
           </div>
         );
       },
+    },
+    {
+      title: "رزرو شده در",
+      dataIndex: "رزرو شده در",
+      render: (createdAt: string) => getDateTimeFormat(createdAt),
+    },
+    {
+      title: "شناسه پرداخت",
+      dataIndex: "شناسه پرداخت",
+    },
+    {
+      title: "وضعیت",
+      dataIndex: "وضعیت",
+      render: (status: string) => status.toUpperCase(),
+    },
+    {
+      title: "هزینه",
+      dataIndex: "هزینه",
+      render: (fee: number) => `$${fee}`,
+    },
+    {
+      title: "تاریخ & زمان",
+      dataIndex: "تاریخ",
+      render: (date: string, row: IAppointment) =>
+        getDateTimeFormat(`${date} ${row.time}`),
+    },
+    {
+      title: "متخصص",
+      dataIndex: "متخصص",
+      render: (specialist: string) => specialist.toUpperCase(),
+    },
+    {
+      title: "نام دکتر",
+      dataIndex: "دکتر",
+      render: (doctor: IDoctor) => doctor.name,
+    },
+    {
+      title: "نام بیمار",
+      dataIndex: "بیمار",
+      render: (patient: IPatient) => patient.name,
     },
   ];
 

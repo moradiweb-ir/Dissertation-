@@ -35,30 +35,7 @@ function UsersTable({ users }: { users: IUser[] }) {
 
   const columns = [
     {
-      title: "Name",
-      dataIndex: "name",
-      key: "name",
-    },
-    {
-      title: "Email",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "User Id",
-      dataIndex: "_id",
-      key: "_id",
-    },
-    {
-      title: "Created At",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (createdAt: string) => (
-        <> {dayjs(createdAt).format("MMM DD YYYY , hh:mm A")} </>
-      ),
-    },
-    {
-      title: "Is Approved",
+      title: "تایید است",
       dataIndex: "isApproved",
       key: "isApproved",
       render: (isApproved: boolean, row: IUser) => (
@@ -73,8 +50,9 @@ function UsersTable({ users }: { users: IUser[] }) {
         />
       ),
     },
+
     {
-      title: "Is Super Admin",
+      title: "ادمبن فعال",
       dataIndex: "isSuperAdmin",
       key: "isSuperAdmin",
       render: (isSuperAdmin: boolean, row: IUser) => (
@@ -89,9 +67,32 @@ function UsersTable({ users }: { users: IUser[] }) {
         />
       ),
     },
+    {
+      title: "زمان ورود",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      render: (createdAt: string) => (
+        <> {dayjs(createdAt).format("MMM DD YYYY , hh:mm A")} </>
+      ),
+    },
+    {
+      title: "آیدی کاربر",
+      dataIndex: "_id",
+      key: "_id",
+    },
+    {
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
+    },
+    {
+      title: "نام",
+      dataIndex: "name",
+      key: "name",
+    },
   ];
 
-  // if current user is not super admin, remove isApproved and isSuperAdmin columns
+  
   if (!currentUserData?.isSuperAdmin) {
     columns.splice(4, 2);
   }

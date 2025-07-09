@@ -51,7 +51,7 @@ function BookAppoinmentPage() {
       setError("");
       const { success, data } = await checkDoctorsAvailability(slotData);
       if (!success || !data.length) {
-        setError("No doctors available for the given slot");
+        setError("هیچ پزشکی برای زمان داده شده در دسترس نیست");
         setSelectedDoctor(null);
         setAvailableDoctors([]);
       } else {
@@ -112,32 +112,24 @@ function BookAppoinmentPage() {
   };
 
   return (
-    <div className="px-10 my-5">
-      <PageTitle title="Book Appointment" />
+    <div className="px-10 my-5 text-end">
+      <PageTitle title="نوبت دهی" />
 
-      <Form layout="vertical" className="mt-5">
+      <Form layout="vertical" className="mt-5 text-end ">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-end">
-          <Form.Item label="Date">
-            <Input
-              type="date"
-              value={slotData.date}
-              onChange={(e) =>
-                setSlotData({ ...slotData, date: e.target.value })
-              }
-              min={dayjs().format("YYYY-MM-DD")}
-            />
-          </Form.Item>
+          <div className="grid grid-cols-2 gap-5">
+            <Button onClick={clearHandler}>پاک کردن</Button>
+            <Button
+              disabled={!slotData.specialist}
+              type="primary"
+              onClick={checkAvailabilityHandler}
+              loading={loading}
+            >
+              بررسی کردن
+            </Button>
+          </div>
 
-          <Form.Item label="Time">
-            <Select
-              options={workHours}
-              value={slotData.time}
-              onChange={(value) => setSlotData({ ...slotData, time: value })}
-              disabled={!slotData.date}
-            />
-          </Form.Item>
-
-          <Form.Item label="Specialist">
+          <Form.Item label="متخصص">
             <Select
               options={specializations}
               value={slotData.specialist}
@@ -147,18 +139,24 @@ function BookAppoinmentPage() {
               disabled={!slotData.time}
             />
           </Form.Item>
-
-          <div className="grid grid-cols-2 gap-5">
-            <Button onClick={clearHandler}>Clear</Button>
-            <Button
-              disabled={!slotData.specialist}
-              type="primary"
-              onClick={checkAvailabilityHandler}
-              loading={loading}
-            >
-              Check Availability
-            </Button>
-          </div>
+          <Form.Item label="ساعت">
+            <Select
+              options={workHours}
+              value={slotData.time}
+              onChange={(value) => setSlotData({ ...slotData, time: value })}
+              disabled={!slotData.date}
+            />
+          </Form.Item>
+          <Form.Item label="تاریخ">
+            <Input
+              type="date"
+              value={slotData.date}
+              onChange={(e) =>
+                setSlotData({ ...slotData, date: e.target.value })
+              }
+              min={dayjs().format("YYYY-MM-DD")}
+            />
+          </Form.Item>
         </div>
       </Form>
 

@@ -18,7 +18,7 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
     <div className="w-full">
       <div className="p-5 border border-primary rounded-sm flex flex-col">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-2xl text-pretty uppercase">SHEY-HOSPITAL</h1>
+          <h1 className="font-bold text-2xl text-pretty uppercase">رزرو وقت آنلاین</h1>
 
           <div className="text-sm">
             <p>Hyderabad , Telangana</p>

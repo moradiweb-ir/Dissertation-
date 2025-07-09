@@ -25,9 +25,15 @@ function FilterAppointments() {
 
   return (
     <div className="grid lg:grid-cols-4 gap-5 items-end">
-      <div className="flex flex-col">
+      <div className="flex justify-end gap-5">
+        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
+        <Button type="primary" onClick={onFilter}>
+          اعمال فیلتر
+        </Button>
+      </div>
+      <div className="flex flex-col text-end">
         <label htmlFor="Search" className="text-sm">
-          Appointment Date
+          تاریخ بیمار
         </label>
         <Input
           type="date"
@@ -36,9 +42,9 @@ function FilterAppointments() {
         />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col text-end">
         <label htmlFor="Speciality" className="text-sm">
-          Doctor Name
+          نام دکتر
         </label>
         <Input
           value={doctorName}
@@ -46,21 +52,14 @@ function FilterAppointments() {
         />
       </div>
 
-      <div className="flex flex-col">
+      <div className="flex flex-col text-end">
         <label htmlFor="Phone" className="text-sm">
-          Patient Name
+          نام بیمار
         </label>
         <Input
           value={patientName}
           onChange={(e) => setPatientName(e.target.value)}
         />
-      </div>
-
-      <div className="flex justify-end gap-5">
-        <Button onClick={onClearFilters}>Clear Filters</Button>
-        <Button type="primary" onClick={onFilter}>
-          Apply Filters
-        </Button>
       </div>
     </div>
   );

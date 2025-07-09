@@ -8,10 +8,10 @@ interface DashboardCardProps {
 
 function DashboardCard({ title, value, description }: DashboardCardProps) {
   return (
-    <div className="p-5 border border-primary border-solid bg-gray-100 rounded-sm">
-      <h1 className="text-sm font-bold">{title}</h1>
+    <div className="p-5 border border-primary border-solid bg-gray-100 rounded-sm ">
+      <h1 className="text-xl font-bold">{title}</h1>
       <p className="text-6xl font-bold mt-5 text-center">{value}</p>
-      <p className="text-sm mt-5">{description}</p>
+      <p className="text-x mt-5">{description}</p>
     </div>
   );
 }
