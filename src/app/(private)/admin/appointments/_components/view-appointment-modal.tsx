@@ -22,7 +22,7 @@ function ViewAppointmentModal({
       onCancel={() => setShowViewAppointmentModal(false)}
       centered
       footer={null}
-      title="View Appointment"
+      title="مشاهده قرار ملاقات"
       width={600}
     >
       <div className="mt-10">

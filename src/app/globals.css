@@ -1,10 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  font-family: "Montserrat", sans-serif;
+@font-face {
+  font-family: "bnazanin";
+  src: url("./fonts/B-NAZANIN.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "bnazanin", sans-serif;
+}
+
+* { 
+  direction: rtl;
+  font-family: "bnazanin", sans-serif;
   font-weight: 500;
   margin: 0;
   padding: 0;
@@ -26,7 +37,7 @@
   border-radius: 2px !important;
 }
 
-.cl-cardBox{
+.cl-cardBox {
   box-shadow: none !important;
   border-radius: 0 !important;
   z-index: 1 !important;

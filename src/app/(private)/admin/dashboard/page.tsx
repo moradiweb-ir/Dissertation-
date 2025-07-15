@@ -11,14 +11,14 @@ async function DashboardPage() {
   if (!success) {
     return (
       <Alert
-        message="Failed to fetch dashboard data, please try again later"
+        message="دریافت داده‌های داشبورد ناموفق بود، لطفاً بعداً دوباره امتحان کنید"
         showIcon
       />
     );
   }
 
   return (
-    <div className="p-5 flex flex-col gap-5 text-end">
+    <div className="p-5 flex flex-col gap-5 text-start">
       <PageTitle title="داشبورد" />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-2 text-center">
@@ -48,7 +48,7 @@ async function DashboardPage() {
       </div>
 
       <div className="mt-7">
-        <h1 className="text-xl font-bold">قرارهای ملاقات امروز</h1>
+        <h1 className="text-xl font-bold text-start">قرارهای ملاقات امروز</h1>
         <AppointmentsTable appointments={data?.todayAppointmentsData} />
       </div>
     </div>

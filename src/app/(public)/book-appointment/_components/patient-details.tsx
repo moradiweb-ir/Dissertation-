@@ -14,13 +14,13 @@ function PatientDetails({
   return (
     <div className="mt-7">
       <h1 className="text-sm font-bold text-primary">
-        Please provide the following details to book an appointment
+        لطفا برای رزرو نوبت، مشخصات زیر را ارائه دهید
       </h1>
 
       <Form layout="vertical">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">
           <Form.Item
-            label="Name"
+            label="نام"
             className="col-span-4 md:col-span-2 lg:col-span-1"
           >
             <Input
@@ -32,9 +32,9 @@ function PatientDetails({
           </Form.Item>
 
           <div className="grid grid-cols-2 gap-5 col-span-4 md:col-span-2 lg:col-span-1 ">
-            <Form.Item label="Age">
+            <Form.Item label="سن">
               <Input
-                type="number"
+                type="شماره"
                 value={patientDetails.age}
                 onChange={(e) =>
                   setPatientDetails({ ...patientDetails, age: +e.target.value })
@@ -43,7 +43,7 @@ function PatientDetails({
             </Form.Item>
 
             <Form.Item
-              label="Gender"
+              label="جنسیت"
               className="col-span-2 md:col-span-1 lg:col-span-1"
             >
               <Select
@@ -53,15 +53,15 @@ function PatientDetails({
                 }
                 options={[
                   {
-                    label: "Male",
+                    label: "مرد",
                     value: "male",
                   },
                   {
-                    label: "Female",
+                    label: "زن",
                     value: "female",
                   },
                   {
-                    label: "Other",
+                    label: "بیشتر",
                     value: "other",
                   },
                 ]}
@@ -70,7 +70,7 @@ function PatientDetails({
           </div>
 
           <Form.Item
-            label="Email"
+            label="ایمیل"
             className="col-span-4 md:col-span-2 lg:col-span-1"
           >
             <Input
@@ -82,7 +82,7 @@ function PatientDetails({
           </Form.Item>
 
           <Form.Item
-            label="Phone"
+            label="شماره تلفن"
             className="col-span-4 md:col-span-2 lg:col-span-1"
           >
             <Input
@@ -94,7 +94,7 @@ function PatientDetails({
           </Form.Item>
 
           <div className="col-span-4">
-            <Form.Item label="Problem">
+            <Form.Item label="مشکل">
               <Input.TextArea
                 value={patientDetails.problem}
                 onChange={(e) =>

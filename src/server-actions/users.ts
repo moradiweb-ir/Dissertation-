@@ -21,7 +21,7 @@ export const createUser = async () => {
     await newUser.save();
     return {
       success: true,
-      message: "User created successfully",
+      message: "کاربر با موفقیت ایجاد شد",
       data: JSON.parse(JSON.stringify(newUser)),
     };
   } catch (error: any) {
@@ -104,7 +104,7 @@ export const updateUser = async ({
     revalidatePath("/admin/users");
     return {
       success: true,
-      message: "User updated successfully",
+      message: "کاربر با موفقیت به روز شد",
     };
   } catch (error: any) {
     return {

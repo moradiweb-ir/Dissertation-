@@ -20,7 +20,7 @@ async function UsersPage({ searchParams }: UsersPageProps) {
   if (!success) {
     return (
       <Alert
-        message="Failed to fetch users , please try again later"
+        message="دریافت کاربران ناموفق بود، لطفاً بعداً دوباره امتحان کنید"
         showIcon
       />
     );

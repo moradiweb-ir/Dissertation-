@@ -26,7 +26,7 @@ function CancelAppointmentModal({
       if (!success) {
         throw new Error(msg);
       }
-      message.success("Appointment cancelled successfully");
+      message.success("قرار ملاقات با موفقیت لغو شد");
       setShowCancelAppointmentModal(false);
     } catch (error: any) {
       message.error(error.message);
@@ -37,7 +37,7 @@ function CancelAppointmentModal({
 
   return (
     <Modal
-      title="CANCEL APPOINTMENT"
+      title="لغو قرار ملاقات"
       open={showCancelAppointmentModal}
       onCancel={() => setShowCancelAppointmentModal(false)}
       onClose={() => setShowCancelAppointmentModal(false)}
@@ -47,23 +47,23 @@ function CancelAppointmentModal({
       <Alert
         message={
           <p className="text-sm">
-            Are you sure you want to cancel the appointment with{" "}
-            <b>{appointment.doctor.name}</b> on <b>{appointment.date}</b> at{" "}
-            <b>{appointment.time}</b> of <b>{appointment.patient.name}</b> ?
+            آیا مطمئن هستید که می‌خواهید قرار ملاقات را لغو کنید؟{" "}
+            <b>{appointment.doctor.name}</b> در <b>{appointment.date}</b> در{" "}
+            <b>{appointment.time}</b> از <b>{appointment.patient.name}</b> ?
           </p>
         }
         type="warning"
       />
 
       <div className="mt-5 flex justify-end gap-5">
-        <Button disabled={loading}>Close</Button>
+        <Button disabled={loading}>بستن</Button>
         <Button
           danger
           type="primary"
           loading={loading}
           onClick={handleCancelAppointment}
         >
-          Yes , Cancel Appointment
+          بله، لغو نوبت
         </Button>
       </div>
     </Modal>

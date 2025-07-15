@@ -17,6 +17,17 @@ function PatientsTable({ patients }: PatientsTableProps) {
   );
   const columns = [
     {
+      title: "نام ",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
+    },
+
+    {
       title: "رزرو",
       dataIndex: "actions",
       key: "actions",
@@ -37,7 +48,7 @@ function PatientsTable({ patients }: PatientsTableProps) {
               setShowPatientAppointmentModal(true);
             }}
           >
-            <List size={14} /> View Appointments
+            <List size={14} /> مشاهده قرار ملاقات ها
           </Button>
         </div>
       ),
@@ -56,16 +67,6 @@ function PatientsTable({ patients }: PatientsTableProps) {
       title: "تلفن",
       dataIndex: "phone",
       key: "phone",
-    },
-    {
-      title: "ایمیل",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "نام ",
-      dataIndex: "name",
-      key: "name",
     },
   ];
   return (

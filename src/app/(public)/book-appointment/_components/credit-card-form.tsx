@@ -2,9 +2,7 @@ import React from "react";
 import {
   PaymentElement,
   AddressElement,
-  useStripe,
-  useElements,
-} from "@stripe/react-stripe-js";
+ } from "@stripe/react-stripe-js";
 import { Button, message, Modal } from "antd";
 
 interface CreditCardFromProps {
@@ -18,32 +16,17 @@ function CreditCardFrom({
   setShowCreditCardForm,
   onPaymentSuccess,
 }: CreditCardFromProps) {
-  const stripe = useStripe();
-  const elements = useElements();
   const [loading, setLoading] = React.useState(false);
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       setLoading(true);
       event.preventDefault();
 
-      if (!stripe || !elements) {
+      if (true) {
         return;
       }
 
-      const result = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          return_url: "https://example.com/order/123/complete",
-        },
-        redirect: "if_required",
-      });
-
-      if (result.error) {
-        message.error(result.error.message);
-      } else {
-        message.success("Payment successful");
-        onPaymentSuccess(result.paymentIntent.id);
-      }
+      
     } catch (error: any) {
       message.error(error.message);
     } finally {
@@ -54,7 +37,7 @@ function CreditCardFrom({
   return (
     <Modal
       open={showCreditCardForm}
-      title="Enter your card details"
+      title="مشخصات کارت خود را وارد کنید"
       onCancel={() => setShowCreditCardForm(false)}
       centered
       footer={null}
@@ -73,10 +56,10 @@ function CreditCardFrom({
             onClick={() => setShowCreditCardForm(false)}
             disabled={loading}
           >
-            Cancel
+            انصراف
           </Button>
           <Button htmlType="submit" type="primary" loading={loading}>
-            Pay
+            پرداخت 
           </Button>
         </div>
       </form>

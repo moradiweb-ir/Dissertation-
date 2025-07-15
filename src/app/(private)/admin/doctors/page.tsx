@@ -19,7 +19,7 @@ async function DoctorsPage({ searchParams }: DoctorsPageProps) {
   if (!success) {
     return (
       <Alert
-        message="Failed to fetch doctors , please try again later"
+        message="تماس با پزشک ناموفق بود، لطفاً بعداً دوباره امتحان کنید"
         showIcon
       />
     );
@@ -29,10 +29,10 @@ async function DoctorsPage({ searchParams }: DoctorsPageProps) {
   return (
     <div className="p-5 flex flex-col gap-5">
       <div className="flex justify-between items-center">
+        <PageTitle title="پزشکان" />
         <Button type="primary">
           <Link href="/admin/doctors/new">اضافه کردن دکتر</Link>
         </Button>
-        <PageTitle title="پزشکان" />
       </div>
 
       <FilterDoctors />

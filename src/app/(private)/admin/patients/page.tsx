@@ -17,12 +17,14 @@ interface PatientsListProps {
 async function PatientsList({ searchParams }: PatientsListProps) {
   const { success, data } = await getAllPatients(searchParams);
   if (!success) {
-    return <Alert message="Failed to fetch patients" type="error" showIcon />;
+    return (
+      <Alert message="موفق به آوردن بیماران نشدیم" type="error" showIcon />
+    );
   }
 
   const patients = data;
   return (
-    <div className="p-5 flex flex-col gap-5 text-end">
+    <div className="p-5 flex flex-col gap-5 text-start">
       <PageTitle title="بیماران" />
 
       <FilterPatients />

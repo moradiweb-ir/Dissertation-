@@ -22,9 +22,9 @@ function UsersTable({ users }: { users: IUser[] }) {
       setLoading(true);
       const { success } = await updateUser({ userId, updatedData });
       if (success) {
-        message.success("User updated successfully");
+        message.success("کاربر با موفقیت به روز شد");
       } else {
-        message.error("Failed to update user");
+        message.error("به‌روزرسانی کاربر انجام نشد");
       }
     } catch (error: any) {
       message.error(error.message);
@@ -34,6 +34,11 @@ function UsersTable({ users }: { users: IUser[] }) {
   };
 
   const columns = [
+    {
+      title: "نام",
+      dataIndex: "name",
+      key: "name",
+    },
     {
       title: "تایید است",
       dataIndex: "isApproved",
@@ -67,13 +72,11 @@ function UsersTable({ users }: { users: IUser[] }) {
         />
       ),
     },
+
     {
-      title: "زمان ورود",
-      dataIndex: "createdAt",
-      key: "createdAt",
-      render: (createdAt: string) => (
-        <> {dayjs(createdAt).format("MMM DD YYYY , hh:mm A")} </>
-      ),
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
     },
     {
       title: "آیدی کاربر",
@@ -81,14 +84,12 @@ function UsersTable({ users }: { users: IUser[] }) {
       key: "_id",
     },
     {
-      title: "ایمیل",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "نام",
-      dataIndex: "name",
-      key: "name",
+      title: "زمان ورود",
+      dataIndex: "createdAt",
+      key: "createdAt",
+      render: (createdAt: string) => (
+        <> {dayjs(createdAt).format("MMM DD YYYY , hh:mm A")} </>
+      ),
     },
   ];
 

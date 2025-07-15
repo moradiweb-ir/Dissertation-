@@ -5,7 +5,7 @@ import DoctorForm from '../_components/doctor-form'
 function AddDoctorPage() {
   return (
     <div className='p-5'>
-        <PageTitle title="Add Doctor" />
+        <PageTitle title="اضافه کردن دکتر" />
         <DoctorForm />
     </div>
   )

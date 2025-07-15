@@ -22,6 +22,16 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
     React.useState<IAppointment | null>(null);
   const columns = [
     {
+      title: "نام دکتر",
+      dataIndex: "doctor",
+      render: (doctor: IDoctor) => doctor?.name || "نامشخص",
+    },
+    {
+      title: "نام بیمار",
+      dataIndex: "patient",
+      render: (patient: IPatient) => patient?.name || "نامشخص",
+    },
+    {
       title: "اقدام",
       dataIndex: "اقدام",
       render: (text: string, record: IAppointment) => {
@@ -61,43 +71,24 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
     },
     {
       title: "رزرو شده در",
-      dataIndex: "رزرو شده در",
+      dataIndex: "createdAt",
       render: (createdAt: string) => getDateTimeFormat(createdAt),
     },
     {
-      title: "شناسه پرداخت",
-      dataIndex: "شناسه پرداخت",
-    },
-    {
       title: "وضعیت",
-      dataIndex: "وضعیت",
-      render: (status: string) => status.toUpperCase(),
-    },
-    {
-      title: "هزینه",
-      dataIndex: "هزینه",
-      render: (fee: number) => `$${fee}`,
+      dataIndex: "status",
+      render: (status?: string) => status?.toUpperCase() || "نامشخص",
     },
     {
       title: "تاریخ & زمان",
-      dataIndex: "تاریخ",
+      dataIndex: "date",
       render: (date: string, row: IAppointment) =>
         getDateTimeFormat(`${date} ${row.time}`),
     },
     {
       title: "متخصص",
-      dataIndex: "متخصص",
-      render: (specialist: string) => specialist.toUpperCase(),
-    },
-    {
-      title: "نام دکتر",
-      dataIndex: "دکتر",
-      render: (doctor: IDoctor) => doctor.name,
-    },
-    {
-      title: "نام بیمار",
-      dataIndex: "بیمار",
-      render: (patient: IPatient) => patient.name,
+      dataIndex: "specialist",
+      render: (specialist: string) => specialist?.toUpperCase() || "نامشخص",
     },
   ];
 

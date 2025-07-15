@@ -30,10 +30,10 @@ function AppointmentConfirmation() {
       if (success) {
         setAppointment(data);
       } else {
-        message.error("No appointment found with the given ID");
+        message.error("هیچ قرار ملاقاتی با شناسه داده شده یافت نشد");
       }
     } catch (error) {
-      message.error("Failed to fetch data");
+      message.error("دریافت داده‌ها ناموفق بود");
     } finally {
       setLoading(false);
     }
@@ -54,7 +54,7 @@ function AppointmentConfirmation() {
       <div className="w-[600px] flex justify-center">
         <div className="flex justify-between gap-5 items-end w-full">
           <div className="w-full">
-            <label className="text-sm">Appointment ID</label>
+            <label className="text-sm">شناسه قرار ملاقات</label>
             <Input
               value={appointmentId}
               onChange={(e) => setAppointmentId(e.target.value)}
@@ -63,7 +63,7 @@ function AppointmentConfirmation() {
           </div>
 
           <Button type="primary" loading={loading} onClick={getData}>
-            Search
+           جستجو
           </Button>
         </div>
       </div>
@@ -75,9 +75,9 @@ function AppointmentConfirmation() {
       </div>
       {appointment && (
         <div className="flex justify-end gap-5 w-[600px]">
-          <Button>Download</Button>
+          <Button>دانلود</Button>
           <Button type="primary" onClick={handlePrint}>
-            Print
+            چاپ
           </Button>
         </div>
       )}

@@ -6,8 +6,8 @@ export const getStripePaymentIntent = async (amount: number) => {
   try {
     const paymentIntent = await stripe.paymentIntents.create({
       amount: amount * 100,
-      currency: "usd",
-      description: "SHEY-HOSPITAL APPOINTMENT",
+      currency: "ریال",
+      description: "رزرو وقت آنلاین دکتر",
     });
 
     return {

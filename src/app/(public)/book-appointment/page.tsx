@@ -11,10 +11,7 @@ import {
 } from "@/server-actions/appointments";
 import AvailableDoctors from "./_components/available-doctors";
 import PatientDetails from "./_components/patient-details";
-import { getStripePaymentIntent } from "@/server-actions/payments";
-import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import CreditCardFrom from "./_components/credit-card-form";
 import { useRouter } from "next/navigation";
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || ""
@@ -41,8 +38,6 @@ function BookAppoinmentPage() {
   );
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState("");
-  const [paymentIntent, setPaymentIntent] = React.useState("");
-  const [showCreditCardForm, setShowCreditCardForm] = React.useState(false);
   const [loadingPaymentIntent, setLoadingPaymentIntent] = React.useState(false);
   const router = useRouter();
   const checkAvailabilityHandler = async () => {
@@ -70,23 +65,6 @@ function BookAppoinmentPage() {
     setAvailableDoctors([]);
   };
 
-  const getPaymentIntent = async () => {
-    try {
-      setLoadingPaymentIntent(true);
-      const { data, success, message } = await getStripePaymentIntent(
-        selectedDoctor?.fee || 0
-      );
-      if (!success) {
-        throw new Error(message);
-      }
-      setPaymentIntent(data.client_secret);
-      setShowCreditCardForm(true);
-    } catch (error: any) {
-      message.error(error.message);
-    } finally {
-      setLoadingPaymentIntent(false);
-    }
-  };
 
   const onPaymentSuccess = async (paymentId: string) => {
     try {
@@ -104,7 +82,7 @@ function BookAppoinmentPage() {
         throw new Error(response.message);
       }
 
-      message.success("Appointment booked successfully");
+      message.success("نوبت با موفقیت رزرو شد");
       router.push(`/appointment-confirmation?id=${response.data._id}`);
     } catch (error: any) {
       message.error(error.message);
@@ -112,22 +90,29 @@ function BookAppoinmentPage() {
   };
 
   return (
-    <div className="px-10 my-5 text-end">
+    <div className="px-10 my-5 text-start">
       <PageTitle title="نوبت دهی" />
 
       <Form layout="vertical" className="mt-5 text-end ">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 items-end">
-          <div className="grid grid-cols-2 gap-5">
-            <Button onClick={clearHandler}>پاک کردن</Button>
-            <Button
-              disabled={!slotData.specialist}
-              type="primary"
-              onClick={checkAvailabilityHandler}
-              loading={loading}
-            >
-              بررسی کردن
-            </Button>
-          </div>
+          <Form.Item label="تاریخ">
+            <Input
+              type="date"
+              value={slotData.date}
+              onChange={(e) =>
+                setSlotData({ ...slotData, date: e.target.value })
+              }
+              min={dayjs().format("YYYY-MM-DD")}
+            />
+          </Form.Item>
+          <Form.Item label="ساعت">
+            <Select
+              options={workHours}
+              value={slotData.time}
+              onChange={(value) => setSlotData({ ...slotData, time: value })}
+              disabled={!slotData.date}
+            />
+          </Form.Item>
 
           <Form.Item label="متخصص">
             <Select
@@ -139,24 +124,18 @@ function BookAppoinmentPage() {
               disabled={!slotData.time}
             />
           </Form.Item>
-          <Form.Item label="ساعت">
-            <Select
-              options={workHours}
-              value={slotData.time}
-              onChange={(value) => setSlotData({ ...slotData, time: value })}
-              disabled={!slotData.date}
-            />
-          </Form.Item>
-          <Form.Item label="تاریخ">
-            <Input
-              type="date"
-              value={slotData.date}
-              onChange={(e) =>
-                setSlotData({ ...slotData, date: e.target.value })
-              }
-              min={dayjs().format("YYYY-MM-DD")}
-            />
-          </Form.Item>
+
+          <div className="grid grid-cols-2 gap-5">
+            <Button onClick={clearHandler}>پاک کردن</Button>
+            <Button
+              disabled={!slotData.specialist}
+              type="primary"
+              onClick={checkAvailabilityHandler}
+              loading={loading}
+            >
+              بررسی کردن
+            </Button>
+          </div>
         </div>
       </Form>
 
@@ -188,27 +167,12 @@ function BookAppoinmentPage() {
         <div className="flex justify-end gap-5 mt-7">
           <Button
             type="primary"
-            onClick={getPaymentIntent}
+            onClick={() => onPaymentSuccess("test-payment-id")}
             loading={loadingPaymentIntent}
           >
-            Confirm
+            تایید
           </Button>
         </div>
-      )}
-
-      {paymentIntent && (
-        <Elements
-          options={{
-            clientSecret: paymentIntent,
-          }}
-          stripe={stripePromise}
-        >
-          <CreditCardFrom
-            showCreditCardForm={showCreditCardForm}
-            setShowCreditCardForm={setShowCreditCardForm}
-            onPaymentSuccess={onPaymentSuccess}
-          />
-        </Elements>
       )}
     </div>
   );

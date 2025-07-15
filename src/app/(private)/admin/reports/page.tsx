@@ -22,7 +22,11 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
 
   if (!success) {
     return (
-      <Alert message="Failed to fetch reports data" type="error" showIcon />
+      <Alert
+        message="دریافت داده‌های گزارش‌ها ناموفق بود"
+        type="error"
+        showIcon
+      />
     );
   }
   return (
@@ -31,7 +35,7 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
 
       <DateFiltersForReports />
 
-      <div className="flex lg:flex-cols-3 gap-4 justify-end text-center ">
+      <div className="flex lg:flex-cols-3 gap-4 justify-start text-center ">
         <DashboardCard
           title="مجموع قرار ملاقات ها"
           value={data?.appointmentsCount || 0}
@@ -46,7 +50,7 @@ async function ReportsPage({ searchParams }: ReportsPageProps) {
       </div>
 
       <div>
-        <h1 className="text-sm font-bold text-end">
+        <h1 className="text-sm font-bold text-start">
           داده‌های قرار ملاقات در محدوده تاریخ انتخاب شده
           {searchParams.toDate}
         </h1>

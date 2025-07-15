@@ -23,7 +23,7 @@ function PatientAppointmentModal({
         selectedPatient._id
       );
       if (!success) {
-        return message.error("Failed to fetch appointments");
+        return message.error("دریافت نوبت ناموفق بود");
       }
       setAppointments(data);
     } catch (error: any) {
@@ -37,14 +37,25 @@ function PatientAppointmentModal({
 
   const columns = [
     {
-      title: "رزرو شده",
-      dataIndex: "createdAt",
-      render: (createdAt: string) => getDateTimeFormat(createdAt),
+      title: "نخصص",
+      dataIndex: "specialist",
+      render: (specialist: string) => specialist.toUpperCase(),
+    },
+    {
+      title: "نام دکتر ",
+      dataIndex: "doctor",
+      render: (doctor: IDoctor) => doctor.name,
     },
     {
       title: "آیدی بیمار",
       dataIndex: "paymentId",
     },
+    {
+      title: "رزرو شده",
+      dataIndex: "createdAt",
+      render: (createdAt: string) => getDateTimeFormat(createdAt),
+    },
+
     {
       title: "وضعیت",
       dataIndex: "status",
@@ -61,16 +72,6 @@ function PatientAppointmentModal({
       render: (date: string, row: IAppointment) =>
         getDateTimeFormat(`${date} ${row.time}`),
     },
-    {
-      title: "نخصص",
-      dataIndex: "specialist",
-      render: (specialist: string) => specialist.toUpperCase(),
-    },
-    {
-      title: "نام دکتر ",
-      dataIndex: "doctor",
-      render: (doctor: IDoctor) => doctor.name,
-    },
   ];
 
   return (
@@ -80,7 +81,7 @@ function PatientAppointmentModal({
       onCancel={() => setShowPatientAppointmentModal(false)}
       footer={null}
       centered
-      title={`Appointments of ${selectedPatient.name}`}
+      title={`انتصابات از ${selectedPatient.name}`}
       width={1200}
     >
       <div className="mt-5">

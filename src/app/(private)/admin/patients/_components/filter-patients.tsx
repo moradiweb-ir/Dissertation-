@@ -28,27 +28,21 @@ function FilterPatients() {
 
   return (
     <div className="grid lg:grid-cols-4 gap-5 items-end">
-      <div className="flex justify-end gap-5">
-        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
-        <Button type="primary" onClick={onFilter}>
-          اعمال فیلتر
-        </Button>
-      </div>
-      <div className="flex flex-col text-end">
+      <div className="flex flex-col text-start">
         <label htmlFor="Search" className="text-sm">
           نام
         </label>
         <Input value={name} onChange={(e) => setName(e.target.value)} />
       </div>
 
-      <div className="flex flex-col  text-end">
+      <div className="flex flex-col  text-start">
         <label htmlFor="phone" className="text-sm">
           تلفن
         </label>
         <Input value={phone} onChange={(e) => setPhone(e.target.value)} />
       </div>
 
-      <div className="flex flex-col  text-end">
+      <div className="flex flex-col  text-start">
         <label htmlFor="gender" className="text-sm">
           جنسیت
         </label>
@@ -58,6 +52,12 @@ function FilterPatients() {
           onChange={(value) => setGender(value)}
           className="w-full"
         />
+      </div>
+      <div className="flex justify-end gap-5">
+        <Button onClick={onClearFilters}>پاک کردن فیلتر</Button>
+        <Button type="primary" onClick={onFilter}>
+          اعمال فیلتر
+        </Button>
       </div>
     </div>
   );

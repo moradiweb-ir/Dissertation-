@@ -16,7 +16,7 @@ async function EditDoctorPage({ params }: EditDoctorPageProps) {
   if (!success) {
     return (
       <Alert
-        message="Failed to fetch doctor , please try again later"
+        message="تماس با پزشک ناموفق بود، لطفاً بعداً دوباره امتحان کنید"
         showIcon
       />
     );
@@ -25,7 +25,7 @@ async function EditDoctorPage({ params }: EditDoctorPageProps) {
   const doctor = data;
   return (
     <div className="p-5">
-      <PageTitle title="Edit Doctor" />
+      <PageTitle title="ویرایش دکتر" />
       <DoctorForm type="edit" initialValues={doctor} />
     </div>
   );

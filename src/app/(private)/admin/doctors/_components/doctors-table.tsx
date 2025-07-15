@@ -15,9 +15,9 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
       setLoading(true);
       const { success } = await deleteDoctor(id);
       if (success) {
-        message.success("Doctor deleted successfully");
+        message.success("دکتر با موفقیت حذف شد");
       } else {
-        message.error("Failed to delete doctor");
+        message.error("حذف پزشک ناموفق بود");
       }
     } catch (error: any) {
       message.error(error.message);
@@ -27,6 +27,16 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
   };
 
   const columns = [
+    {
+      title: "نام",
+      dataIndex: "name",
+      key: "name",
+    },
+    {
+      title: "ایمیل",
+      dataIndex: "email",
+      key: "email",
+    },
     {
       title: "اقدامات",
       dataIndex: "actions",
@@ -45,6 +55,7 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
         </div>
       ),
     },
+
     {
       title: "اضافه شد",
       dataIndex: "createdAt",
@@ -66,16 +77,6 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
       title: "تلفن",
       dataIndex: "phone",
       key: "phone",
-    },
-    {
-      title: "ایمیل",
-      dataIndex: "email",
-      key: "email",
-    },
-    {
-      title: "نام",
-      dataIndex: "name",
-      key: "name",
     },
   ];
   return (

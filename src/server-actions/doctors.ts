@@ -10,7 +10,7 @@ export const addDoctor = async (payload: Partial<IDoctor>) => {
     revalidatePath("/admin/doctors");
     return {
       success: true,
-      message: "Doctor added successfully",
+      message: "دکتر با موفقیت اضافه شد",
     };
   } catch (error: any) {
     return {
@@ -80,7 +80,7 @@ export const updateDoctor = async ({
     revalidatePath("/admin/doctors");
     return {
       success: true,
-      message: "Doctor updated successfully",
+      message: "دکتر با موفقیت به روز شد",
     };
   } catch (error: any) {
     return {
@@ -96,7 +96,7 @@ export const deleteDoctor = async (id: string) => {
     revalidatePath("/admin/doctors");
     return {
       success: true,
-      message: "Doctor deleted successfully",
+      message: "دکتر با موفقیت حذف شد",
     };
   } catch (error: any) {
     return {

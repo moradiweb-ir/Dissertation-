@@ -18,7 +18,9 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
     <div className="w-full">
       <div className="p-5 border border-primary rounded-sm flex flex-col">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-2xl text-pretty uppercase">رزرو وقت آنلاین</h1>
+          <h1 className="font-bold text-2xl text-pretty uppercase">
+            رزرو وقت آنلاین
+          </h1>
 
           <div className="text-sm">
             <p>Hyderabad , Telangana</p>
@@ -28,16 +30,16 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
 
         <hr />
 
-        <h1 className="bg-gray-300 uppercase py-2 px-3 mt-5">
-          Appointment Details
+        <h1 className="bg-gray-300 uppercase py-2 px-3 mt-5 text-sm">
+          جزئیات نوبت اینترنتی
         </h1>
 
         <div className="flex flex-col gap-2 mt-5">
-          {renderProperty("Doctor", appointment.doctor.name)}
+          {renderProperty("شناسه رزرو", appointment._id)}
+          {renderProperty("نام دکتر", appointment.doctor.name)}
           {renderProperty("Specialist", appointment.specialist)}
           {renderProperty("Date", appointment.date)}
           {renderProperty("Time", appointment.time)}
-          {renderProperty("Fee", `$ ${appointment.fee}`)}
           {renderProperty("Status", appointment.status.toUpperCase())}
           {renderProperty("Patient Name", appointment.patient.name)}
           {renderProperty("Patient Email", appointment.patient.email)}

@@ -18,8 +18,8 @@ function DateFiltersForReports() {
   };
 
   return (
-    <div className="flex gap-5 items-end flex-row-reverse ">
-      <div className="flex flex-col text-end">
+    <div className="flex gap-5 items-end flex-row ">
+      <div className="flex flex-col text-start">
         <label className="text-sm" htmlFor="From Date">
           از تاریخ
         </label>
@@ -30,7 +30,7 @@ function DateFiltersForReports() {
         />
       </div>
 
-      <div className="flex flex-col text-end ">
+      <div className="flex flex-col text-start">
         <label className="text-sm" htmlFor="To Date">
           تا تاریخ
         </label>

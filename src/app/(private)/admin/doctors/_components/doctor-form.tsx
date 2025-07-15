@@ -74,26 +74,26 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
   }
 
   return (
-    <div className="mt-5">
+    <div className="mt-5 text-right ">
       <Form
         layout="vertical"
-        className="grid grid-cols-4 gap-5 "
+        className="grid grid-cols-4 gap-5 text-right direction-rtl"
         onFinish={onSubmit}
         initialValues={initialValues}
       >
         <Form.Item
           name="name"
-          label="Name"
-          rules={[{ required: true, message: "Please input the name!" }]}
-          className="col-span-4 md:col-span-2 lg:col-span-1"
+          label="نام"
+          rules={[{ required: true, message: "لطفا نام را وارد کنید!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1  "
         >
           <Input />
         </Form.Item>
 
         <Form.Item
           name="email"
-          label="Email"
-          rules={[{ required: true, message: "Please input the email!" }]}
+          label="ایمیل"
+          rules={[{ required: true, message: "لطفا ایمیل را وارد کنید!" }]}
           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input />
@@ -101,8 +101,8 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
 
         <Form.Item
           name="phone"
-          label="Phone"
-          rules={[{ required: true, message: "Please input the phone!" }]}
+          label="تلفن"
+          rules={[{ required: true, message: "لطفا تلفن را وارد کنید!" }]}
           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input type="number" />
@@ -110,9 +110,9 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
 
         <Form.Item
           name="specializations"
-          label="Specializations"
+          label="تخصص ها"
           rules={[
-            { required: true, message: "Please input the specialization!" },
+            { required: true, message: "لطفا تخصص مورد نظر را وارد کنید!" },
           ]}
           className="col-span-4 md:col-span-2 lg:col-span-1"
         >
@@ -121,50 +121,52 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
 
         <Form.Item
           name="workDays"
-          label="Work Days"
-          rules={[{ required: true, message: "Please input the work days!" }]}
-           className="col-span-4 md:col-span-2 lg:col-span-1"
+          label="روزهای کاری"
+          rules={[
+            { required: true, message: "لطفا روزهای کاری را وارد کنید!" },
+          ]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workDays} mode="multiple" />
         </Form.Item>
 
         <Form.Item
           name="startTime"
-          label="Start Time"
-          rules={[{ required: true, message: "Please input the start time!" }]}
-           className="col-span-4 md:col-span-2 lg:col-span-1"
+          label="شروع تایم"
+          rules={[{ required: true, message: "لطفا زمان شروع را وارد کنید!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workHours} />
         </Form.Item>
 
         <Form.Item
           name="endTime"
-          label="End Time"
-          rules={[{ required: true, message: "Please input the end time!" }]}
-           className="col-span-4 md:col-span-2 lg:col-span-1"
+          label="پایان تایم"
+          rules={[{ required: true, message: "لطفا زمان پایان را وارد کنید!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Select options={workHours} />
         </Form.Item>
 
         <Form.Item
           name="fee"
-          label="Fee"
-          rules={[{ required: true, message: "Please input the fee!" }]}
-           className="col-span-4 md:col-span-2 lg:col-span-1"
+          label="هزینه"
+          rules={[{ required: true, message: "لطفا هزینه را وارد کنید!" }]}
+          className="col-span-4 md:col-span-2 lg:col-span-1"
         >
           <Input type="number" />
         </Form.Item>
 
         <Form.Item
           name="bio"
-          label="Bio"
-          rules={[{ required: true, message: "Please input the bio!" }]}
+          label="توضیحات"
+          rules={[{ required: true, message: "لطفا بیوگرافی را وارد کنید!" }]}
           className="col-span-4"
         >
           <Input.TextArea />
         </Form.Item>
 
-        <Form.Item label="Doctor Profile Picture" className="flex gap-5">
+        <Form.Item label="عکس دکتر" className="flex gap-5">
           <Upload
             listType="picture-card"
             beforeUpload={(file) => {
@@ -173,7 +175,7 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
             fileList={selectedFilesList}
           >
             <div className="span text-xs">
-              {profilePicture ? "Change" : "Upload"} Profile Picture
+              {profilePicture ? "Change" : "Upload"} عکس پروفایل
             </div>
           </Upload>
         </Form.Item>
@@ -183,10 +185,10 @@ function DoctorForm({ type = "add", initialValues = {} }: DoctorFormProps) {
             disabled={loading}
             onClick={() => router.push("/admin/doctors")}
           >
-            Cancel
+            انصراف
           </Button>
           <Button type="primary" htmlType="submit" loading={loading}>
-            Save
+            ذخیره کردن
           </Button>
         </div>
       </Form>

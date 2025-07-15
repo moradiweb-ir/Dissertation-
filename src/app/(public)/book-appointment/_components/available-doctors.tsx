@@ -22,7 +22,9 @@ function AvailableDoctors({
         {doctorsList.map((doctor) => (
           <div
             className={`p-3 border cursor-pointer flex gap-5 rounded items-center ${
-              selectedDoctor?._id === doctor._id ? "border-primary border-2" : "border-gray-300"
+              selectedDoctor?._id === doctor._id
+                ? "border-primary border-2"
+                : "border-gray-300"
             }`}
             onClick={() => setSelectedDoctor(doctor)}
           >
@@ -40,7 +42,7 @@ function AvailableDoctors({
               <hr />
 
               <p className="text-sm">
-                Cunsultaion Fee : <b>$ {doctor.fee}</b>
+                هزینه مشاوره : <b>ریال {doctor.fee}</b>
               </p>
             </div>
           </div>

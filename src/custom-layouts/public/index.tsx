@@ -9,11 +9,11 @@ function PublicLayout({ children }: { children: React.ReactNode }) {
     <div>
       {!isAuthRoute && (
         <div className="flex justify-between items-center py-5 px-10 bg-primary">
-          <Link className="text-sm text-white " href="/sign-in">
-           ورود
-          </Link>
           <Link className="text-white text-2xl font-bold" href="/">
             رزرو وقت آنلاین
+          </Link>
+          <Link className="text-xl text-white rounded-md border p-2 " href="/sign-in">
+            ورود
           </Link>
         </div>
       )}

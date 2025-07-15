@@ -57,7 +57,7 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
 
   const handleSignOut = async () => {
     try {
-      message.success("Signed out successfully");
+      message.success("با موفقیت از سیستم خارج شد");
     } catch (error: any) {
       message.error(error.message);
     }
@@ -67,7 +67,7 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
     <Drawer
       open={showMenuItems}
       onClose={() => setShowMenuItems(false)}
-      title="Menu Items"
+      title="منو "
     >
       <div className="flex flex-col gap-7 mt-10">
         {menuItems.map((item, index) => (
@@ -88,7 +88,7 @@ function MenuItems({ showMenuItems, setShowMenuItems }: MenuItemsProps) {
           </div>
         ))}
         <Button icon={<LogOut size={iconSize} />} onClick={handleSignOut}>
-          Sign Out
+          خروج
         </Button>
       </div>
     </Drawer>

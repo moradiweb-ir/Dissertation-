@@ -21,7 +21,7 @@ function PrivateLayout({ children }: { children: React.ReactNode }) {
         setCurrentUserData(response.data);
         if (!response.data.isApproved) {
           setError(
-            "Your account is not approved yet. Please contact the admin."
+            "حساب کاربری شما هنوز تأیید نشده است. لطفا با مدیر تماس بگیرید."
           );
         }
       } else {
