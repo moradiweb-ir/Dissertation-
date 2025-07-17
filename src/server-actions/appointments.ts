@@ -20,7 +20,7 @@ export const checkDoctorsAvailability = async ({
     const bookedDoctorIds = await AppointmentModel.find({
       date,
       time,
-      status: "approved",
+      status: "فعال",
     }).distinct("doctor");
 
     // get the doctors by eliminating the above ids and by checking the specialist
@@ -84,7 +84,7 @@ export const saveAppointment = async ({
       specialist,
       fee,
       paymentId,
-      status: "approved",
+      status: "فعال",
     });
 
     return {

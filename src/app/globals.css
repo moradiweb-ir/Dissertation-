@@ -17,6 +17,7 @@ body {
   direction: rtl;
   font-family: "bnazanin", sans-serif;
   font-weight: 500;
+  font-weight: bold;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -31,7 +32,7 @@ body {
 
 .cl-formButtonPrimary {
   height: 45px !important;
-  background-color: #16423c !important;
+  background-color: #006c5e !important;
   color: white !important;
   box-shadow: none !important;
   border-radius: 2px !important;

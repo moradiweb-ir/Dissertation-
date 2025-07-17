@@ -33,7 +33,7 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
     },
     {
       title: "اقدام",
-      dataIndex: "اقدام",
+      dataIndex: "action",
       render: (text: string, record: IAppointment) => {
         let showCancelBtn = false;
         const isCancelled = record.status === "cancelled";
@@ -62,7 +62,7 @@ function AppointmentsTable({ appointments }: AppointmentsTableProps) {
                   setShowCancelAppointmentModal(true);
                 }}
               >
-                انصراف
+                لغو کردن{" "}
               </Button>
             )}
           </div>

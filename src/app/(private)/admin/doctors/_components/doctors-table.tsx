@@ -63,11 +63,6 @@ function DoctorsTable({ doctors }: { doctors: IDoctor[] }) {
       render: (date: string) => getDateTimeFormat(date),
     },
     {
-      title: "هزینه",
-      dataIndex: "fee",
-      key: "fee",
-    },
-    {
       title: "نخصص ها",
       dataIndex: "specializations",
       key: "specilizations",

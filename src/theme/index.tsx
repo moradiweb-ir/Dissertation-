@@ -6,14 +6,14 @@ function ThemePrivider({ children }: { children: React.ReactNode }) {
     <ConfigProvider
       theme={{
         token: {
-          colorPrimary: "#16423C",
+          colorPrimary: "#000000",
           borderRadius: 2,
           controlOutline: "none",
         },
         components: {
           Button: {
             controlHeight: 45,
-            defaultBorderColor: "#16423C",
+            defaultBorderColor: "#000000",
           },
           Select: {
             controlHeight: 45,

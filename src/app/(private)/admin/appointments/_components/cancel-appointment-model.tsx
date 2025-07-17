@@ -21,8 +21,8 @@ function CancelAppointmentModal({
       setLoading(true);
       const { success, message: msg } = await updateAppointmentStatus({
         appointmentId: appointment._id,
-        status: "cancelled",
-      });
+        status: "لغو شده",
+      }); 
       if (!success) {
         throw new Error(msg);
       }

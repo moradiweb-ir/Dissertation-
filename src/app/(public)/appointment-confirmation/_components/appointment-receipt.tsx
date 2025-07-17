@@ -37,15 +37,15 @@ function AppointmentReceipt({ appointment }: IAppointmentReceiptProps) {
         <div className="flex flex-col gap-2 mt-5">
           {renderProperty("شناسه رزرو", appointment._id)}
           {renderProperty("نام دکتر", appointment.doctor.name)}
-          {renderProperty("Specialist", appointment.specialist)}
-          {renderProperty("Date", appointment.date)}
-          {renderProperty("Time", appointment.time)}
-          {renderProperty("Status", appointment.status.toUpperCase())}
-          {renderProperty("Patient Name", appointment.patient.name)}
-          {renderProperty("Patient Email", appointment.patient.email)}
-          {renderProperty("Patient Phone", appointment.patient.phone)}
+          {renderProperty("متخصص", appointment.specialist)}
+          {renderProperty("تاریخ", appointment.date)}
+          {renderProperty("زمان", appointment.time)}
+          {renderProperty("وضعیت", appointment.status.toUpperCase())}
+          {renderProperty("نام بیمار", appointment.patient.name)}
+          {renderProperty("ایمیل بیمار", appointment.patient.email)}
+          {renderProperty("نلفن همراه بیمار", appointment.patient.phone)}
           {renderProperty(
-            "Booked On",
+            "تاریخ ثبت",
             getDateTimeFormat(appointment.createdAt)
           )}
         </div>
